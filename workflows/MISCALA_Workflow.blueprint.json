@@ -1,0 +1,2069 @@
+{
+    "name": "MISCALA_Workflow",
+    "flow": [
+        {
+            "id": 1,
+            "module": "google-sheets:watchRows",
+            "version": 2,
+            "parameters": {
+                "from": "drive",
+                "mode": "select",
+                "limit": 1,
+                "sheetId": "Form responses 1",
+                "__IMTCONN__": 5634517,
+                "spreadsheetId": "/1IreK1KFUE1fAaZEKB0xuTERUeyBhwFmbwwABMICmLwA",
+                "tableFirstRow": "A1:Z1",
+                "includesHeaders": true,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING"
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -590,
+                    "y": -214
+                },
+                "restore": {
+                    "parameters": {
+                        "from": {
+                            "label": "My Drive"
+                        },
+                        "mode": {
+                            "label": "Search by path"
+                        },
+                        "sheetId": {
+                            "label": "Form responses 1"
+                        },
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "My Google connection"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "Customer Service  (Responses)"
+                            ]
+                        },
+                        "includesHeaders": {
+                            "label": "Yes"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "text",
+                        "label": "Row with headers",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__ROW_NUMBER__",
+                        "type": "number",
+                        "label": "Row number"
+                    },
+                    {
+                        "name": "__SPREADSHEET_ID__",
+                        "type": "text",
+                        "label": "Spreadsheet ID"
+                    },
+                    {
+                        "name": "__SHEET__",
+                        "type": "text",
+                        "label": "Sheet"
+                    },
+                    {
+                        "name": "0",
+                        "type": "text",
+                        "label": "Timestamp (A)"
+                    },
+                    {
+                        "name": "1",
+                        "type": "text",
+                        "label": "Full Name (B)"
+                    },
+                    {
+                        "name": "2",
+                        "type": "text",
+                        "label": "Email Address (C)"
+                    },
+                    {
+                        "name": "3",
+                        "type": "text",
+                        "label": "Subject | Brief Description (D)"
+                    },
+                    {
+                        "name": "4",
+                        "type": "text",
+                        "label": "Describe your concern (E)"
+                    },
+                    {
+                        "name": "5",
+                        "type": "text",
+                        "label": "Do you know to whom your concern should go to? Please select the appropriate answer (F)"
+                    },
+                    {
+                        "name": "6",
+                        "type": "text",
+                        "label": "(G)"
+                    },
+                    {
+                        "name": "7",
+                        "type": "text",
+                        "label": "(H)"
+                    },
+                    {
+                        "name": "8",
+                        "type": "text",
+                        "label": "(I)"
+                    },
+                    {
+                        "name": "9",
+                        "type": "text",
+                        "label": "(J)"
+                    },
+                    {
+                        "name": "10",
+                        "type": "text",
+                        "label": "(K)"
+                    },
+                    {
+                        "name": "11",
+                        "type": "text",
+                        "label": "(L)"
+                    },
+                    {
+                        "name": "12",
+                        "type": "text",
+                        "label": "(M)"
+                    },
+                    {
+                        "name": "13",
+                        "type": "text",
+                        "label": "(N)"
+                    },
+                    {
+                        "name": "14",
+                        "type": "text",
+                        "label": "(O)"
+                    },
+                    {
+                        "name": "15",
+                        "type": "text",
+                        "label": "(P)"
+                    },
+                    {
+                        "name": "16",
+                        "type": "text",
+                        "label": "(Q)"
+                    },
+                    {
+                        "name": "17",
+                        "type": "text",
+                        "label": "(R)"
+                    },
+                    {
+                        "name": "18",
+                        "type": "text",
+                        "label": "(S)"
+                    },
+                    {
+                        "name": "19",
+                        "type": "text",
+                        "label": "(T)"
+                    },
+                    {
+                        "name": "20",
+                        "type": "text",
+                        "label": "(U)"
+                    },
+                    {
+                        "name": "21",
+                        "type": "text",
+                        "label": "(V)"
+                    },
+                    {
+                        "name": "22",
+                        "type": "text",
+                        "label": "(W)"
+                    },
+                    {
+                        "name": "23",
+                        "type": "text",
+                        "label": "(X)"
+                    },
+                    {
+                        "name": "24",
+                        "type": "text",
+                        "label": "(Y)"
+                    },
+                    {
+                        "name": "25",
+                        "type": "text",
+                        "label": "(Z)"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "util:Switcher",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "input": "{{1.`5`}}",
+                "casesTable": [
+                    {
+                        "output": "Sales Team",
+                        "pattern": "Sales Team"
+                    },
+                    {
+                        "output": "IT Team",
+                        "pattern": "IT Team"
+                    },
+                    {
+                        "output": "Manufacturing Team",
+                        "pattern": "Manufacturing Team"
+                    },
+                    {
+                        "output": "I do not know",
+                        "pattern": "I do not know"
+                    }
+                ],
+                "elseOutput": "",
+                "useRegExpMatch": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": -290,
+                    "y": -214
+                },
+                "restore": {
+                    "expect": {
+                        "casesTable": {
+                            "mode": "chose",
+                            "items": [
+                                null,
+                                null,
+                                null,
+                                null
+                            ]
+                        },
+                        "elseOutput": {
+                            "collapsed": true
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "input",
+                        "type": "text",
+                        "label": "Input"
+                    },
+                    {
+                        "name": "useRegExpMatch",
+                        "type": "boolean",
+                        "label": "Use regular expressions to match",
+                        "required": true
+                    },
+                    {
+                        "name": "casesTable",
+                        "spec": [
+                            {
+                                "name": "pattern",
+                                "type": "text",
+                                "label": "Pattern"
+                            },
+                            {
+                                "name": "output",
+                                "type": "any",
+                                "label": "Output"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Cases",
+                        "required": true
+                    },
+                    {
+                        "name": "elseOutput",
+                        "type": "any",
+                        "label": "Else"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 10,
+                    "y": -214
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 12,
+                            "module": "google-email:sendAnEmail",
+                            "version": 4,
+                            "parameters": {
+                                "__IMTCONN__": 5634547
+                            },
+                            "filter": {
+                                "name": "IT TEAM",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{6.output}}",
+                                            "b": "IT Team",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "to": [
+                                    "lucnathan5@gmail.com"
+                                ],
+                                "subject": "URGENT || IT Customer Concern",
+                                "bodyType": "collection",
+                                "contents": [
+                                    {
+                                        "text": "Hello IT Team!\n\nPlease allocate time to review and resolve this customer's concern:\n\n{{1.`4`}}",
+                                        "image": {}
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 310,
+                                    "y": -814
+                                },
+                                "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "My Gmail connection (lcunathan93@gmail.com)",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google-email"
+                                            }
+                                        }
+                                    },
+                                    "expect": {
+                                        "to": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        },
+                                        "bodyType": {
+                                            "label": "Collection of contents (text, images, etc.)"
+                                        },
+                                        "attachments": {
+                                            "mode": "chose"
+                                        },
+                                        "from": {
+                                            "mode": "chose"
+                                        },
+                                        "cc": {
+                                            "mode": "chose"
+                                        },
+                                        "bcc": {
+                                            "mode": "chose"
+                                        },
+                                        "emailHeaders": {
+                                            "mode": "chose"
+                                        },
+                                        "contents": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "image": {
+                                                        "collapsed": true
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "signature": {
+                                            "mode": "chose"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:google-email",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "to",
+                                        "type": "array",
+                                        "label": "To",
+                                        "required": true,
+                                        "spec": {
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true,
+                                            "validate": true,
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "subject",
+                                        "type": "text",
+                                        "label": "Subject"
+                                    },
+                                    {
+                                        "name": "bodyType",
+                                        "type": "select",
+                                        "label": "Body type",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "rawHtml",
+                                                "collection"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "attachments",
+                                        "type": "array",
+                                        "label": "Attachments",
+                                        "spec": {
+                                            "spec": [
+                                                {
+                                                    "name": "filename",
+                                                    "type": "filename",
+                                                    "label": "File name",
+                                                    "required": true,
+                                                    "semantic": "file:name"
+                                                },
+                                                {
+                                                    "name": "data",
+                                                    "type": "buffer",
+                                                    "label": "Data",
+                                                    "required": true,
+                                                    "semantic": "file:data"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Attachment",
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "from",
+                                        "type": "select",
+                                        "label": "From"
+                                    },
+                                    {
+                                        "name": "cc",
+                                        "type": "array",
+                                        "label": "CC recipients",
+                                        "spec": {
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true,
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "bcc",
+                                        "type": "array",
+                                        "label": "BCC recipients",
+                                        "spec": {
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true,
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "emailHeaders",
+                                        "type": "array",
+                                        "label": "Additional email headers",
+                                        "spec": {
+                                            "spec": [
+                                                {
+                                                    "name": "key",
+                                                    "type": "text",
+                                                    "label": "Key",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "value",
+                                                    "type": "text",
+                                                    "label": "Value"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Email header",
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "contents",
+                                        "type": "array",
+                                        "label": "Body contents",
+                                        "spec": {
+                                            "spec": [
+                                                {
+                                                    "name": "text",
+                                                    "type": "text",
+                                                    "label": "Text"
+                                                },
+                                                {
+                                                    "name": "image",
+                                                    "spec": [
+                                                        {
+                                                            "name": "filename",
+                                                            "type": "filename",
+                                                            "label": "File name",
+                                                            "semantic": "file:name"
+                                                        },
+                                                        {
+                                                            "name": "data",
+                                                            "type": "buffer",
+                                                            "label": "Data",
+                                                            "semantic": "file:data"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Image"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Content",
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "signature",
+                                        "type": "select",
+                                        "label": "Signature content"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 9,
+                            "module": "google-email:sendAnEmail",
+                            "version": 4,
+                            "parameters": {
+                                "__IMTCONN__": 5634547
+                            },
+                            "filter": {
+                                "name": "SALES TEAM",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{6.output}}",
+                                            "b": "Sales Team",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "to": [
+                                    "lucnathan5@gmail.com"
+                                ],
+                                "subject": "URGENT || Sales Customer Concern",
+                                "bodyType": "collection",
+                                "contents": [
+                                    {
+                                        "text": "Hello Sales Team!\n\nPlease allocate time to review and resolve this customer's concern:\n\n{{1.`4`}}",
+                                        "image": {}
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 310,
+                                    "y": -514
+                                },
+                                "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "My Gmail connection (lcunathan93@gmail.com)",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google-email"
+                                            }
+                                        }
+                                    },
+                                    "expect": {
+                                        "to": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        },
+                                        "bodyType": {
+                                            "label": "Collection of contents (text, images, etc.)"
+                                        },
+                                        "attachments": {
+                                            "mode": "chose"
+                                        },
+                                        "from": {
+                                            "mode": "chose"
+                                        },
+                                        "cc": {
+                                            "mode": "chose"
+                                        },
+                                        "bcc": {
+                                            "mode": "chose"
+                                        },
+                                        "emailHeaders": {
+                                            "mode": "chose"
+                                        },
+                                        "contents": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "image": {
+                                                        "collapsed": true
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "signature": {
+                                            "mode": "chose",
+                                            "collapsed": true
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:google-email",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "to",
+                                        "type": "array",
+                                        "label": "To",
+                                        "required": true,
+                                        "spec": {
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true,
+                                            "validate": true,
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "subject",
+                                        "type": "text",
+                                        "label": "Subject"
+                                    },
+                                    {
+                                        "name": "bodyType",
+                                        "type": "select",
+                                        "label": "Body type",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "rawHtml",
+                                                "collection"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "attachments",
+                                        "type": "array",
+                                        "label": "Attachments",
+                                        "spec": {
+                                            "spec": [
+                                                {
+                                                    "name": "filename",
+                                                    "type": "filename",
+                                                    "label": "File name",
+                                                    "required": true,
+                                                    "semantic": "file:name"
+                                                },
+                                                {
+                                                    "name": "data",
+                                                    "type": "buffer",
+                                                    "label": "Data",
+                                                    "required": true,
+                                                    "semantic": "file:data"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Attachment",
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "from",
+                                        "type": "select",
+                                        "label": "From"
+                                    },
+                                    {
+                                        "name": "cc",
+                                        "type": "array",
+                                        "label": "CC recipients",
+                                        "spec": {
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true,
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "bcc",
+                                        "type": "array",
+                                        "label": "BCC recipients",
+                                        "spec": {
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true,
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "emailHeaders",
+                                        "type": "array",
+                                        "label": "Additional email headers",
+                                        "spec": {
+                                            "spec": [
+                                                {
+                                                    "name": "key",
+                                                    "type": "text",
+                                                    "label": "Key",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "value",
+                                                    "type": "text",
+                                                    "label": "Value"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Email header",
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "contents",
+                                        "type": "array",
+                                        "label": "Body contents",
+                                        "spec": {
+                                            "spec": [
+                                                {
+                                                    "name": "text",
+                                                    "type": "text",
+                                                    "label": "Text"
+                                                },
+                                                {
+                                                    "name": "image",
+                                                    "spec": [
+                                                        {
+                                                            "name": "filename",
+                                                            "type": "filename",
+                                                            "label": "File name",
+                                                            "semantic": "file:name"
+                                                        },
+                                                        {
+                                                            "name": "data",
+                                                            "type": "buffer",
+                                                            "label": "Data",
+                                                            "semantic": "file:data"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Image"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Content",
+                                            "name": "value"
+                                        }
+                                    },
+                                    {
+                                        "name": "signature",
+                                        "type": "select",
+                                        "label": "Signature content"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 14,
+                            "module": "google-email:sendAnEmail",
+                            "version": 4,
+                            "parameters": {
+                                "__IMTCONN__": 5634547
+                            },
+                            "filter": {
+                                "name": "MANUFACTURING TEAM",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{6.output}}",
+                                            "b": "Manufacturing Team",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "to": [
+                                    "lucnathan5@gmail.com"
+                                ],
+                                "subject": "URGENT || Manufacturing Customer Concern",
+                                "bodyType": "collection",
+                                "contents": [
+                                    {
+                                        "text": "Hello Manufacturing Team!\n\nPlease allocate time to review and resolve this customer's concern:\n\n{{1.`4`}}",
+                                        "image": {}
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 310,
+                                    "y": -214
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "cc": {
+                                            "mode": "chose"
+                                        },
+                                        "to": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        },
+                                        "bcc": {
+                                            "mode": "chose"
+                                        },
+                                        "from": {
+                                            "mode": "chose"
+                                        },
+                                        "bodyType": {
+                                            "label": "Collection of contents (text, images, etc.)"
+                                        },
+                                        "contents": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "image": {
+                                                        "collapsed": true
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "signature": {
+                                            "mode": "chose",
+                                            "collapsed": true
+                                        },
+                                        "attachments": {
+                                            "mode": "chose"
+                                        },
+                                        "emailHeaders": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google-email"
+                                            },
+                                            "label": "My Gmail connection (lcunathan93@gmail.com)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:google-email",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "to",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true,
+                                            "validate": true
+                                        },
+                                        "type": "array",
+                                        "label": "To",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "subject",
+                                        "type": "text",
+                                        "label": "Subject"
+                                    },
+                                    {
+                                        "name": "bodyType",
+                                        "type": "select",
+                                        "label": "Body type",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "rawHtml",
+                                                "collection"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "attachments",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "filename",
+                                                    "type": "filename",
+                                                    "label": "File name",
+                                                    "required": true,
+                                                    "semantic": "file:name"
+                                                },
+                                                {
+                                                    "name": "data",
+                                                    "type": "buffer",
+                                                    "label": "Data",
+                                                    "required": true,
+                                                    "semantic": "file:data"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Attachment"
+                                        },
+                                        "type": "array",
+                                        "label": "Attachments"
+                                    },
+                                    {
+                                        "name": "from",
+                                        "type": "select",
+                                        "label": "From"
+                                    },
+                                    {
+                                        "name": "cc",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true
+                                        },
+                                        "type": "array",
+                                        "label": "CC recipients"
+                                    },
+                                    {
+                                        "name": "bcc",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "email",
+                                            "label": "Recipient email address",
+                                            "required": true
+                                        },
+                                        "type": "array",
+                                        "label": "BCC recipients"
+                                    },
+                                    {
+                                        "name": "emailHeaders",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "key",
+                                                    "type": "text",
+                                                    "label": "Key",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "value",
+                                                    "type": "text",
+                                                    "label": "Value"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Email header"
+                                        },
+                                        "type": "array",
+                                        "label": "Additional email headers"
+                                    },
+                                    {
+                                        "name": "contents",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "text",
+                                                    "type": "text",
+                                                    "label": "Text"
+                                                },
+                                                {
+                                                    "name": "image",
+                                                    "spec": [
+                                                        {
+                                                            "name": "filename",
+                                                            "type": "filename",
+                                                            "label": "File name",
+                                                            "semantic": "file:name"
+                                                        },
+                                                        {
+                                                            "name": "data",
+                                                            "type": "buffer",
+                                                            "label": "Data",
+                                                            "semantic": "file:data"
+                                                        },
+                                                        {
+                                                            "name": "width",
+                                                            "type": "uinteger",
+                                                            "label": "Width"
+                                                        },
+                                                        {
+                                                            "name": "height",
+                                                            "type": "uinteger",
+                                                            "label": "Height"
+                                                        }
+                                                    ],
+                                                    "type": "collection",
+                                                    "label": "Image"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Content"
+                                        },
+                                        "type": "array",
+                                        "label": "Body contents"
+                                    },
+                                    {
+                                        "name": "signature",
+                                        "type": "select",
+                                        "label": "Signature content"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 17,
+                            "module": "openai-gpt-3:askAnything",
+                            "version": 1,
+                            "parameters": {},
+                            "filter": {
+                                "name": "I do not know BRANCH",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{6.output}}",
+                                            "b": "I do not know",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "model": "gpt-5.1",
+                                "textPrompt": "You are to analyze the concern of the customer and designate this to the correct team.\n\nThere are 3 teams to redirect the customer:\n1. Sales Team\n2. IT Team\n3. Manufacturing Team\n\nTo understand the concern with proper alignment follow these guidelines:\n- Sales Team: If the concern is regarding sales reports. If the concern is regarding commissions. If the concern is regarding monetary value. If the concern is regarding prices.\n- IT Team: If the concern is regarding technological questions. If the concern is regarding software. If the concern is regarding application management, instruction, and guidelines.\n- Manufacturing Team: If the concern is regarding parts. If the concern is regarding deliveries. If the concern is regarding any factory details, defects, etc.\n\nAfter analyzing the concern. Your output should only be one of these three: \nSales Team, IT Team, Manufacturing Team.\n\nDo not provide any reasoning, or any other sentences. Just output the specific team based on the analysis"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 310,
+                                    "y": 86
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "model": {
+                                            "label": "GPT-5.1Features enhanced reasoning to meticulously solve difficult, illogical, and complex queries"
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "model",
+                                        "type": "select",
+                                        "label": "Model",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "gpt-5.2",
+                                                "gpt-5.1",
+                                                "gpt-5",
+                                                "gpt-5-nano",
+                                                "gpt-5-mini"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "textPrompt",
+                                        "type": "text",
+                                        "label": "Text prompt",
+                                        "required": true
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 19,
+                            "module": "builtin:BasicRouter",
+                            "version": 1,
+                            "mapper": null,
+                            "metadata": {
+                                "designer": {
+                                    "x": 610,
+                                    "y": 86
+                                }
+                            },
+                            "routes": [
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 26,
+                                            "module": "google-email:sendAnEmail",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 5634547
+                                            },
+                                            "filter": {
+                                                "name": "IT Team",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "{{17.result}}",
+                                                            "o": "text:equal",
+                                                            "b": "IT Team"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "to": [
+                                                    "lucnathan5@gmail.com"
+                                                ],
+                                                "subject": "URGENT || IT Customer Concern",
+                                                "bodyType": "collection",
+                                                "contents": [
+                                                    {
+                                                        "text": "Hello IT Team!\n\nPlease allocate time to review and resolve this customer's concern:\n\n{{1.`4`}}",
+                                                        "image": {}
+                                                    }
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 901,
+                                                    "y": -239
+                                                },
+                                                "restore": {
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "label": "My Gmail connection (lcunathan93@gmail.com)",
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-email"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "to": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                null
+                                                            ]
+                                                        },
+                                                        "bodyType": {
+                                                            "label": "Collection of contents (text, images, etc.)"
+                                                        },
+                                                        "attachments": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "from": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "cc": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "bcc": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "emailHeaders": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "contents": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                {
+                                                                    "image": {
+                                                                        "collapsed": true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        "signature": {
+                                                            "mode": "chose"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-email",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "to",
+                                                        "type": "array",
+                                                        "label": "To",
+                                                        "required": true,
+                                                        "spec": {
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true,
+                                                            "validate": true,
+                                                            "name": "value"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "subject",
+                                                        "type": "text",
+                                                        "label": "Subject"
+                                                    },
+                                                    {
+                                                        "name": "bodyType",
+                                                        "type": "select",
+                                                        "label": "Body type",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "rawHtml",
+                                                                "collection"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "attachments",
+                                                        "type": "array",
+                                                        "label": "Attachments",
+                                                        "spec": {
+                                                            "spec": [
+                                                                {
+                                                                    "name": "filename",
+                                                                    "type": "filename",
+                                                                    "label": "File name",
+                                                                    "required": true,
+                                                                    "semantic": "file:name"
+                                                                },
+                                                                {
+                                                                    "name": "data",
+                                                                    "type": "buffer",
+                                                                    "label": "Data",
+                                                                    "required": true,
+                                                                    "semantic": "file:data"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Attachment",
+                                                            "name": "value"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "from",
+                                                        "type": "select",
+                                                        "label": "From"
+                                                    },
+                                                    {
+                                                        "name": "cc",
+                                                        "type": "array",
+                                                        "label": "CC recipients",
+                                                        "spec": {
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true,
+                                                            "name": "value"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "bcc",
+                                                        "type": "array",
+                                                        "label": "BCC recipients",
+                                                        "spec": {
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true,
+                                                            "name": "value"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "emailHeaders",
+                                                        "type": "array",
+                                                        "label": "Additional email headers",
+                                                        "spec": {
+                                                            "spec": [
+                                                                {
+                                                                    "name": "key",
+                                                                    "type": "text",
+                                                                    "label": "Key",
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Value"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Email header",
+                                                            "name": "value"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "contents",
+                                                        "type": "array",
+                                                        "label": "Body contents",
+                                                        "spec": {
+                                                            "spec": [
+                                                                {
+                                                                    "name": "text",
+                                                                    "type": "text",
+                                                                    "label": "Text"
+                                                                },
+                                                                {
+                                                                    "name": "image",
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "filename",
+                                                                            "type": "filename",
+                                                                            "label": "File name",
+                                                                            "semantic": "file:name"
+                                                                        },
+                                                                        {
+                                                                            "name": "data",
+                                                                            "type": "buffer",
+                                                                            "label": "Data",
+                                                                            "semantic": "file:data"
+                                                                        },
+                                                                        {
+                                                                            "name": "width",
+                                                                            "type": "uinteger",
+                                                                            "label": "Width"
+                                                                        },
+                                                                        {
+                                                                            "name": "height",
+                                                                            "type": "uinteger",
+                                                                            "label": "Height"
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Image"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Content",
+                                                            "name": "value"
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "signature",
+                                                        "type": "select",
+                                                        "label": "Signature content"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 25,
+                                            "module": "google-email:sendAnEmail",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 5634547
+                                            },
+                                            "filter": {
+                                                "name": "Sales Team",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "{{17.result}}",
+                                                            "o": "text:equal",
+                                                            "b": "Sales Team"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "to": [
+                                                    "lucnathan5@gmail.com"
+                                                ],
+                                                "subject": "URGENT || Sales Customer Concern",
+                                                "bodyType": "collection",
+                                                "contents": [
+                                                    {
+                                                        "text": "Hello Sales Team!\n\nPlease allocate time to review and resolve this customer's concern:\n\n{{1.`4`}}",
+                                                        "image": {}
+                                                    }
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 947,
+                                                    "y": 79
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "cc": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "to": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                null
+                                                            ]
+                                                        },
+                                                        "bcc": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "from": {
+                                                            "mode": "chose",
+                                                            "label": "Empty"
+                                                        },
+                                                        "bodyType": {
+                                                            "label": "Collection of contents (text, images, etc.)"
+                                                        },
+                                                        "contents": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                {
+                                                                    "image": {
+                                                                        "collapsed": true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        "signature": {
+                                                            "mode": "chose",
+                                                            "label": "Empty",
+                                                            "collapsed": true
+                                                        },
+                                                        "attachments": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "emailHeaders": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-email"
+                                                            },
+                                                            "label": "My Gmail connection"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-email",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "to",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true,
+                                                            "validate": true
+                                                        },
+                                                        "type": "array",
+                                                        "label": "To",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "subject",
+                                                        "type": "text",
+                                                        "label": "Subject"
+                                                    },
+                                                    {
+                                                        "name": "bodyType",
+                                                        "type": "select",
+                                                        "label": "Body type",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "rawHtml",
+                                                                "collection"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "attachments",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "filename",
+                                                                    "type": "filename",
+                                                                    "label": "File name",
+                                                                    "required": true,
+                                                                    "semantic": "file:name"
+                                                                },
+                                                                {
+                                                                    "name": "data",
+                                                                    "type": "buffer",
+                                                                    "label": "Data",
+                                                                    "required": true,
+                                                                    "semantic": "file:data"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Attachment"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Attachments"
+                                                    },
+                                                    {
+                                                        "name": "from",
+                                                        "type": "select",
+                                                        "label": "From"
+                                                    },
+                                                    {
+                                                        "name": "cc",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true
+                                                        },
+                                                        "type": "array",
+                                                        "label": "CC recipients"
+                                                    },
+                                                    {
+                                                        "name": "bcc",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true
+                                                        },
+                                                        "type": "array",
+                                                        "label": "BCC recipients"
+                                                    },
+                                                    {
+                                                        "name": "emailHeaders",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "key",
+                                                                    "type": "text",
+                                                                    "label": "Key",
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Value"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Email header"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Additional email headers"
+                                                    },
+                                                    {
+                                                        "name": "contents",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "text",
+                                                                    "type": "text",
+                                                                    "label": "Text"
+                                                                },
+                                                                {
+                                                                    "name": "image",
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "filename",
+                                                                            "type": "filename",
+                                                                            "label": "File name",
+                                                                            "semantic": "file:name"
+                                                                        },
+                                                                        {
+                                                                            "name": "data",
+                                                                            "type": "buffer",
+                                                                            "label": "Data",
+                                                                            "semantic": "file:data"
+                                                                        },
+                                                                        {
+                                                                            "name": "width",
+                                                                            "type": "uinteger",
+                                                                            "label": "Width"
+                                                                        },
+                                                                        {
+                                                                            "name": "height",
+                                                                            "type": "uinteger",
+                                                                            "label": "Height"
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Image"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Content"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Body contents"
+                                                    },
+                                                    {
+                                                        "name": "signature",
+                                                        "type": "select",
+                                                        "label": "Signature content"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 24,
+                                            "module": "google-email:sendAnEmail",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 5634547
+                                            },
+                                            "filter": {
+                                                "name": "Manufacturing Team",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "{{17.result}}",
+                                                            "o": "text:equal",
+                                                            "b": "Manufacturing Team"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "to": [
+                                                    "lucnathan5@gmail.com"
+                                                ],
+                                                "subject": "URGENT || Manufacturing Customer Concern",
+                                                "bodyType": "collection",
+                                                "contents": [
+                                                    {
+                                                        "text": "Hello Manufacturing Team!\n\nPlease allocate time to review and resolve this customer's concern:\n\n{{1.`4`}}",
+                                                        "image": {}
+                                                    }
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 910,
+                                                    "y": 372
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "cc": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "to": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                null
+                                                            ]
+                                                        },
+                                                        "bcc": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "from": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "bodyType": {
+                                                            "label": "Collection of contents (text, images, etc.)"
+                                                        },
+                                                        "contents": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                {
+                                                                    "image": {
+                                                                        "collapsed": true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        "signature": {
+                                                            "mode": "chose",
+                                                            "collapsed": true
+                                                        },
+                                                        "attachments": {
+                                                            "mode": "chose"
+                                                        },
+                                                        "emailHeaders": {
+                                                            "mode": "chose"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-email"
+                                                            },
+                                                            "label": "My Gmail connection (lcunathan93@gmail.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-email",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "to",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true,
+                                                            "validate": true
+                                                        },
+                                                        "type": "array",
+                                                        "label": "To",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "subject",
+                                                        "type": "text",
+                                                        "label": "Subject"
+                                                    },
+                                                    {
+                                                        "name": "bodyType",
+                                                        "type": "select",
+                                                        "label": "Body type",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "rawHtml",
+                                                                "collection"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "attachments",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "filename",
+                                                                    "type": "filename",
+                                                                    "label": "File name",
+                                                                    "required": true,
+                                                                    "semantic": "file:name"
+                                                                },
+                                                                {
+                                                                    "name": "data",
+                                                                    "type": "buffer",
+                                                                    "label": "Data",
+                                                                    "required": true,
+                                                                    "semantic": "file:data"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Attachment"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Attachments"
+                                                    },
+                                                    {
+                                                        "name": "from",
+                                                        "type": "select",
+                                                        "label": "From"
+                                                    },
+                                                    {
+                                                        "name": "cc",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true
+                                                        },
+                                                        "type": "array",
+                                                        "label": "CC recipients"
+                                                    },
+                                                    {
+                                                        "name": "bcc",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "type": "email",
+                                                            "label": "Recipient email address",
+                                                            "required": true
+                                                        },
+                                                        "type": "array",
+                                                        "label": "BCC recipients"
+                                                    },
+                                                    {
+                                                        "name": "emailHeaders",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "key",
+                                                                    "type": "text",
+                                                                    "label": "Key",
+                                                                    "required": true
+                                                                },
+                                                                {
+                                                                    "name": "value",
+                                                                    "type": "text",
+                                                                    "label": "Value"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Email header"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Additional email headers"
+                                                    },
+                                                    {
+                                                        "name": "contents",
+                                                        "spec": {
+                                                            "name": "value",
+                                                            "spec": [
+                                                                {
+                                                                    "name": "text",
+                                                                    "type": "text",
+                                                                    "label": "Text"
+                                                                },
+                                                                {
+                                                                    "name": "image",
+                                                                    "spec": [
+                                                                        {
+                                                                            "name": "filename",
+                                                                            "type": "filename",
+                                                                            "label": "File name",
+                                                                            "semantic": "file:name"
+                                                                        },
+                                                                        {
+                                                                            "name": "data",
+                                                                            "type": "buffer",
+                                                                            "label": "Data",
+                                                                            "semantic": "file:data"
+                                                                        },
+                                                                        {
+                                                                            "name": "width",
+                                                                            "type": "uinteger",
+                                                                            "label": "Width"
+                                                                        },
+                                                                        {
+                                                                            "name": "height",
+                                                                            "type": "uinteger",
+                                                                            "label": "Height"
+                                                                        }
+                                                                    ],
+                                                                    "type": "collection",
+                                                                    "label": "Image"
+                                                                }
+                                                            ],
+                                                            "type": "collection",
+                                                            "label": "Content"
+                                                        },
+                                                        "type": "array",
+                                                        "label": "Body contents"
+                                                    },
+                                                    {
+                                                        "name": "signature",
+                                                        "type": "select",
+                                                        "label": "Signature content"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com",
+        "notes": []
+    }
+}
