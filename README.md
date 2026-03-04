@@ -83,7 +83,7 @@ After importing, reconnect each module to your own credentials:
 | Send an Email — Sales | Gmail | Forwards the formatted concern to the Sales Team L1 manager |
 | Send an Email — IT | Gmail | Forwards the formatted concern to the IT Team L1 manager |
 | Send an Email — Manufacturing | Gmail | Forwards the formatted concern to the Manufacturing Team L1 manager |
-| Create a Completion | OpenAI | Analyzes the concern text and returns one of three values: Sales, IT, or Manufacturing |
+| Simple Text Prompt | OpenAI | Analyzes the concern text and returns one of three values: Sales, IT, or Manufacturing |
 | Router #2 | Make.com (built-in) | Routes the AI's response to the correct Gmail module |
 | Send an Email (AI-routed) | Gmail | Forwards the concern to the AI-determined team, with a note that routing was done by AI |
 | Update a Row | Google Sheets | Logs every Status of each submission on whether or not their concern has been raised to the correct team |
